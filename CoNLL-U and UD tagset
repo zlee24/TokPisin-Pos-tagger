@@ -1,0 +1,60 @@
+import sys
+
+
+sent_id = 0
+
+uposes = {'NN': 'NOUN', 
+    'JJ': 'ADJ', 
+    'IN': 'ADP', 
+    'DT': 'DET', 
+    'CD': 'NUM', 
+    'NNP': 'PROPN',
+    '(': 'PUNCT', 
+    ')': 'PUNCT',
+    'PRP': 'PRON',
+    'CC': 'CCONJ',
+    'MD': 'MOD',
+    'VB': 'VERB',
+    'PRD': 'PRED',
+    'VBG': 'VERB',
+    '.': 'PUNCT',
+    'VBN': 'AUX',
+    'WP' : 'PRON',
+    '"': 'PUNCT',
+    'RB': 'ADV',
+    ':': 'PUNCT',
+    'WRB': 'ADV',
+    'JJR': 'ADJ',
+    'FW': 'X'
+}
+mdata = []
+
+for bloc in sys.stdin.read().split('\n\n'):
+    bloc = bloc.strip()
+    if bloc == '':
+        continue
+
+
+    rows = bloc.split('\n')
+    toks = [row.split('\t')[0] for row in rows]
+    
+    
+    print('# sent_id = %d' % sent_id)
+    print('# text = %s' % ' '.join(toks))
+    mdata.append(' '.join(toks))
+    print('# date = %s' % 'mdata[0][0:13]')
+    print('# page num = %s' % 'mdata[0][22:24]')  
+
+    for i, row in enumerate(rows):
+        cols = row.split('\t')
+        form = cols[0]
+        tag = '_'
+        upos = '_'
+        if len(cols) == 2:
+            tag = cols[1]
+        if tag in uposes:
+            upos = uposes[tag]
+        print('%d\t%s\t_\t%s\t%s\t_\t_\t_\t_\t_' % (i+1, form, upos, tag))
+
+    print()
+    sent_id = sent_id + 1
