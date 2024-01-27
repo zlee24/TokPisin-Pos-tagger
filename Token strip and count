@@ -1,0 +1,58 @@
+import requests
+from bs4 import BeautifulSoup
+from collections import Counter
+import re
+
+OUT = open('tokens.txt',"w")
+
+def count_tokens_in_url(url):
+    # Send a GET request to the URL
+    response = requests.get(url)
+
+    # Check if the request was successful
+    if response.status_code == 200:
+        # Parse the PDF content using BeautifulSoup
+        soup = BeautifulSoup(response.content, 'lxml')
+
+        # Extract text from the PDF content
+        text = soup.get_text()
+
+        # Remove non-alphanumeric characters and convert to lowercase
+        cleaned_text = re.sub(r'[^a-zA-Z0-9\s]', '', text).lower()
+
+        # Split the text into tokens (words)
+        tokens = cleaned_text.split()
+
+        # Count the occurrences of each token (word)
+        token_counts = Counter(tokens)
+
+        # Return the token counts
+        return token_counts
+    else:
+        # If the request was not successful, return an empty counter
+        return Counter()
+
+def count_tokens_in_urls(filename):
+    # Open the file containing the URLs
+    with open(filename, 'r') as file:
+        # Read each line (URL) from the file
+        with OUT as file:
+            for line in file:
+                url = line.strip()
+
+                # Count the tokens in the URL
+                token_counts = count_tokens_in_url(url)
+
+                # Print the URL and token counts
+                print(f"URL: {url}")
+                print("Token counts:")
+                for token, count in token_counts.items():
+                    print(f"{token}: {count}")
+                    file.write(token)
+                    file.write('\n')
+
+                print()
+
+# Example usage
+filename = "text_links.txt"  # Replace with the filename containing the URLs
+count_tokens_in_urls(filename)
