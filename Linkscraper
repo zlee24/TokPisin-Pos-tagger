@@ -1,0 +1,25 @@
+# All links for the Wantok Niuspepa 
+import requests
+from bs4 import BeautifulSoup
+
+archive_url = 'https://wantokniuspepa.com/index.php/archives/wantok-niuspepa'
+
+response = requests.get(archive_url)
+
+soup = BeautifulSoup(response.content, "html.parser")
+
+link_tags = soup.find_all('a')
+
+urls = [link.get("href") for link in link_tags]
+
+list = []
+with open("scraped_links.txt", "w") as file:
+    for url in urls:
+
+        #list.append(url)
+
+
+        file.write(str(url))
+        file.write('\n')
+
+#print(list[:100])
