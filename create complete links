@@ -1,0 +1,17 @@
+import os
+
+p1 = "https://wantokniuspepa.com"
+
+
+#need to shift the below if I want to write out
+with open("data_links.txt","w") as outfile:
+    with open("scraped_links.txt", 'r') as file:
+        for link in file:
+            if link.strip().endswith(".pdf"):
+            
+                full_link = p1 + link
+                outfile.write(full_link)
+                #print(full_link)
+
+outfile.close()
+file.close()
