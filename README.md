@@ -30,3 +30,5 @@ In this step, we train the UDPipe on the CoNLL-U file of doubly tagged tokens. T
 Usage and Further Development:
 
 This project provides a comprehensive framework for developing an automatic Tok Pisin part-of-speech tagger. The resulting gold standard dataset, CoNLL-U formatted file, and trained UDPipemodel can be used for training, testing, and further development. Enhancements could include refining the tagging accuracy, exploring neural methods, and expanding the dataset for more extensive coverage.
+
+A further project with this data implemented for an automatic NER recognition system for Tok Pisin has also been developed and will be appended soon. 
