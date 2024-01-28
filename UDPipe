@@ -1,0 +1,3 @@
+#UDPipe command 
+
+udpipe —tokenizer none —tagger none —train SOMELANGUAGE.udpipe < TRAININGFILE.connlu
