@@ -7,9 +7,9 @@ I. Link Scraper using pip requests
 
 The first step is a link scraper using pip requests, which pulls all links from the archive website of the Wantok Niuspepa. However, there are extra links that are not pdf files, some broken links, and the pdf links we want are incomplete. We proceed to the next code to repair this.
 
-II. Creating Complete Links using OS Library
+II. Creating Complete Links using Python
 
-In this step, the create_complete_links code, utilizing the OS library, filters out non-PDF links from the text file generated in the previous step. This ensures that only the subdirectories holding the PDF files, which we want to scrape, remain. The code then completes the PDF links by adding the consistent scheme, subdomain, top-level domain, and second-level domain. The complete PDF links are written into another text file.
+In this step, the create_complete_links code, utilizing the Python, filters out non-PDF links from the text file generated in the previous step. This ensures that only the subdirectories holding the PDF files, which we want to scrape, remain. The code then completes the PDF links by adding the consistent scheme, subdomain, top-level domain, and second-level domain. The complete PDF links are written into another text file.
 
 III. Token Strip and Count using Requests, BeautifulSoup, Collections, and Regular Expressions
 
