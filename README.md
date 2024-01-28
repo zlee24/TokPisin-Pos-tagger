@@ -2,6 +2,7 @@
 
 
 TABLE OF CONTENTS
+
 I. Link Scraper using pip requests
 
 The first step is a link scraper using pip requests, which pulls all links from the archive website of the Wantok Niuspepa. However, there are extra links that are not pdf files, some broken links, and the pdf links we want are incomplete. We proceed to the next code to repair this.
