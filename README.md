@@ -1,5 +1,8 @@
 # TokPisin-Pos-tagger
+INTRODUCTION
+This research project focuses on expanding natural language processing tools to encompass a broader range of languages, with a specific emphasis on marginalized languages like Tok Pisin. The primary objective is to create both a corpus and a Part of Speech (POS) tagger for Tok Pisin. POS tagging involves attaching grammatical categories, known as POS tags, to words. These tags enable word disambiguation based on contextual information, limiting potential interpretations. The development of an automatic POS tagger through the probabilistic training of a large number of POS disambiguations plays a vital rool in Natural Language Processing tools such as named entity recognition, word sense disambiguation, and a multitude of machine learning applications. 
 
+Creating a corpus for Tok Pisin poses unique challenges, primarily due to the language's limited internet presence. Papua New Guinea's geographical and densely populated nature has hindered the growth of the national language on social media platforms and the availability of large data collections suitable for constructing natural language processing tools. While the Tok Pisin translation of the Christian Bible has been annotated and analyzed as a corpus, this study aims to incorporate a text that continually grows to capture the evolving language. To address this, the project focuses on scraping the archives of "Wantok Niuspepa," the only Tok Pisin newspaper in Papua New Guinea. This approach allows for a broader range of data points, diverse authorship, and insights into the formal word standardization prevalent in contemporary news articles.
 
 TABLE OF CONTENTS
 
